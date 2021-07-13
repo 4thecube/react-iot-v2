@@ -1,0 +1,49 @@
+.hamburger {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 556;
+
+  .hamburger-button {
+    position: fixed;
+    left: 8vw;
+    top: 5%;
+    font-size: 75px;
+    font-weight: 900;
+    color: white;
+    background: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    width: 90px;
+    border-radius: 100%;
+    background-color: #343e59;
+  }
+
+  .hamburger-menu {
+    background-color: #2b2d3e;
+    height: 100vh;
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hamburger-link {
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+    width: 15vw;
+    height: 6vh;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #343e59;
+  }
+  .selected {
+    background-color: rgb(0, 227, 150);
+  }
+}

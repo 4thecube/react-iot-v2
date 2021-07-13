@@ -1,0 +1,24 @@
+$block-main: #2b2d3e;
+$block-second: #8492a9;
+$block-header: #384257;
+$block-header-text: #dae0eb;
+
+.custom-chart {
+  background-color: $block-main;
+  width: 50vw;
+
+  .title {
+    padding: 10px;
+    color: $block-header-text;
+  }
+  .apexcharts-canvas,
+  .apexchartsbasicxbar,
+  .apexcharts-theme-light {
+    svg text {
+      fill: $block-header-text;
+    }
+  }
+  .apexcharts-legend-text {
+    color: white !important;
+  }
+}

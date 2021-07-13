@@ -1,25 +1,59 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import { Redirect, Route, Switch } from "react-router-dom";
+import { connect } from "react-redux";
 
-function App() {
+import app from "./firebase";
+import HomePage from "./pages/home/HomePage";
+import { fetchDataAsync } from "./redux/meteodata/meteodata.actions";
+import "./App.scss";
+import DashboardPage from "./pages/dashboard/DashboardPage";
+import HamburgerMenu from "./components/hamburger-menu/HamburgerMenu.component";
+import DataListPage from "./pages/data-list/DataList.page";
+
+function App({ fetchData, fetchedData }) {
+  const [data, setData] = useState([]);
+  const [currentUser, setCurrentUser] = useState(null);
+  useEffect(() => {
+    const subscribeFromAuth = app.auth().onAuthStateChanged((user) => {
+      setCurrentUser(user);
+    });
+    fetchData(app);
+    setData(fetchedData);
+
+    return () => {
+      subscribeFromAuth();
+    };
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Switch>
+        <Route exact path="/" component={HomePage}>
+          {currentUser ? <Redirect to="/dashboard" /> : null}
+        </Route>
+        {currentUser ? (
+          <>
+            <HamburgerMenu />
+            <Route path="/dashboard">
+              {/* {currentUser ? <DashboardPage /> : <Redirect to="/" />} */}
+              <DashboardPage />
+            </Route>
+            <Route path="/all" component={DataListPage} />
+          </>
+        ) : (
+          <Redirect to="/" />
+        )}
+      </Switch>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  fetchedData: state.data.fetchedData,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchData: (app) => dispatch(fetchDataAsync(app)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

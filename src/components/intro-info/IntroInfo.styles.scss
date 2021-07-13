@@ -1,0 +1,27 @@
+$block-main: #2b2d3e;
+$block-second: #8492a9;
+$block-header: #384257;
+$block-header-text: #dae0eb;
+$green: #28a745;
+$yellow: #ffc107;
+
+.intro-info {
+  width: 50vw;
+  font-size: 40px;
+  color: white;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  .title {
+    font-size: 72px;
+    margin-bottom: 30px;
+  }
+  .body {
+    margin-left: 50px;
+  }
+  .yellow {
+    color: $yellow;
+  }
+}

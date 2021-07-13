@@ -1,0 +1,28 @@
+$block-main: #2b2d3e;
+$block-second: #8492a9;
+$block-header: #384257;
+$block-header-text: #dae0eb;
+
+body {
+  color: black;
+  font-family: "JetBrains Mono", monospace;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.app {
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+}
+
+.apexcharts-canvas,
+.apexchartsbasicxbar,
+.apexcharts-theme-light {
+  svg text {
+    fill: $block-header-text;
+  }
+}
+.apexcharts-legend-text {
+  color: white !important;
+}

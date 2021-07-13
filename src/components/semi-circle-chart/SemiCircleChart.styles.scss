@@ -1,0 +1,13 @@
+.sm-col-chart {
+  width: 30vw;
+  height: 331px;
+  background-color: #2b2d3e;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .title {
+    color: white;
+    text-transform: uppercase;
+  }
+}

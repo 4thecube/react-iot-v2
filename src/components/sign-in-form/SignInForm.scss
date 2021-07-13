@@ -1,0 +1,40 @@
+$block-main: #2b2d3e;
+$block-second: #8492a9;
+$block-header: #384257;
+$block-header-text: #dae0eb;
+$yellow: #ffc107;
+$orange: #fd7e14;
+
+.sign-in-form {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  height: 50%;
+  width: 25%;
+  box-shadow: 0 5px 50.4px 2.6px hsl(0%, 5%, 86%/70%);
+  z-index: 1;
+  position: relative;
+  background-color: white;
+
+  .title {
+    width: 30%;
+    text-align: center;
+    padding: 20px;
+    position: absolute;
+    color: white;
+    background-color: black;
+    top: 20px;
+    left: -20px;
+    z-index: 22;
+  }
+  .buttons {
+    margin-bottom: 80px;
+    width: 100%;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+  }
+}
