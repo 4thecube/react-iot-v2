@@ -5,3 +5,26 @@ html {
   /* background-color: rgba(203, 212, 225, 0.6); */
   background-color: $body-background;
 }
+
+body {
+  color: black;
+  font-family: "JetBrains Mono", monospace;
+  // overflow: hidden;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2188ff;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #2188ff;
+}

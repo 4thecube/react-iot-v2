@@ -28,16 +28,13 @@ function App({ fetchData, fetchedData }) {
   return (
     <div className="app">
       <Switch>
-        <Route exact path="/" component={HomePage}>
+        <Route exact path="/" render={() => <HomePage user={currentUser} />}>
           {currentUser ? <Redirect to="/dashboard" /> : null}
         </Route>
         {currentUser ? (
           <>
             <HamburgerMenu />
-            <Route path="/dashboard">
-              {/* {currentUser ? <DashboardPage /> : <Redirect to="/" />} */}
-              <DashboardPage />
-            </Route>
+            <Route path="/dashboard" component={DashboardPage} />
             <Route path="/all" component={DataListPage} />
           </>
         ) : (

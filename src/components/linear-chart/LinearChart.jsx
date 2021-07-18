@@ -85,7 +85,7 @@ const LinearChart = ({
         },
         stroke: {
           curve: "smooth",
-          width: 3,
+          width: 5,
         },
         colors: color,
         title: {
@@ -94,13 +94,7 @@ const LinearChart = ({
           offsetY: 0,
           offsetX: 20,
         },
-        markers: {
-          size: 5,
-          strokeWidth: 0,
-          hover: {
-            size: 9,
-          },
-        },
+
         grid: {
           show: true,
           padding: {
@@ -114,28 +108,24 @@ const LinearChart = ({
           color: "white",
         },
       },
-
-      // series: [
-      //   {
-      //     name: nameForChart,
-      //     data: data,
-      //   },
-      // ],
-      // series: dataSeries,
       series: [firstData, secondData],
     });
   }, [date, firstData, secondData, color, maxValue]);
 
   return (
     <div className="custom-chart">
-      <h1 className="title">{title}</h1>{" "}
+      <h1 className="chart-title">{title}</h1>{" "}
       {date && firstData && secondData ? (
-        <Chart
-          options={chartOptions.options}
-          series={chartOptions.series}
-          type="line"
-          width="100%"
-        />
+        firstData.data.length ? (
+          <Chart
+            options={chartOptions.options}
+            series={chartOptions.series}
+            type="line"
+            width="100%"
+          />
+        ) : (
+          <div className="chart-error">No data for presentation</div>
+        )
       ) : null}
     </div>
   );

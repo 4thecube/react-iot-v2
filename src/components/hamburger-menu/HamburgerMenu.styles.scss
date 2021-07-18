@@ -4,8 +4,19 @@
   top: 0;
   z-index: 556;
 
+  .x-button {
+    transform: rotate(45deg);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .three-lines {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease-in-out;
+  }
+
   .hamburger-button {
     position: fixed;
+    z-index: 557;
     left: 8vw;
     top: 5%;
     font-size: 75px;
@@ -30,6 +41,23 @@
     align-items: center;
   }
 
+  .opened {
+    animation-name: showMenu;
+    animation-duration: 0.5s;
+  }
+
+  .closed {
+    width: 0;
+    animation-name: hideMenu;
+    animation-duration: 1s;
+    .hamburger-link {
+      display: none;
+      opacity: 1;
+      width: 0;
+      animation: hideMenuButtons 0.4s;
+    }
+  }
+
   .hamburger-link {
     text-decoration: none;
     color: white;
@@ -42,8 +70,63 @@
     justify-content: center;
     align-items: center;
     border: 2px solid #343e59;
+
+    overflow: hidden;
+    white-space: nowrap;
+    .a {
+      overflow: clip;
+    }
+
+    animation-name: showMenuButtons;
+    animation-duration: 0.5s;
   }
   .selected {
     background-color: rgb(0, 227, 150);
+  }
+}
+
+@keyframes showMenu {
+  from {
+    width: 0;
+    z-index: 222;
+  }
+  to {
+    width: 20vw;
+  }
+}
+
+@keyframes showMenuButtons {
+  from {
+    width: 0;
+    z-index: 222;
+  }
+  to {
+    width: 15vw;
+  }
+}
+
+@keyframes hideMenu {
+  from {
+    width: 20vw;
+    .hamburger-link {
+      width: 15vw;
+    }
+  }
+  to {
+    width: 0;
+    .hamburger-link {
+      width: 0;
+    }
+  }
+}
+
+@keyframes hideMenuButtons {
+  from {
+    width: 15vw;
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    width: 0;
   }
 }

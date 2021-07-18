@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import { selectAllData } from "../../redux/meteodata/meteodata.selector";
+import { selectAllDataReversed } from "../../redux/meteodata/meteodata.selector";
 import { selectIsHidden } from "../../redux/hamburger-button/hamburger.selector";
 import MeteodataList from "../../components/meteodata-list/MeteodataList";
 
@@ -17,7 +17,7 @@ const DataList = ({ data, isHidden }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  data: selectAllData,
+  data: selectAllDataReversed,
   isHidden: selectIsHidden,
 });
 

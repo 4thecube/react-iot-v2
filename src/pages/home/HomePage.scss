@@ -1,7 +1,18 @@
 .home-page {
-  height: 100vh;
+  height: 98vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  background-image: url("../../assets/background.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.home-page::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  background: transparent;
 }

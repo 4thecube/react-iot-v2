@@ -6,19 +6,20 @@ $block-header-text: #dae0eb;
 .custom-chart {
   background-color: $block-main;
   width: 50vw;
+  // height: 75vh;
 
-  .title {
+  .chart-title {
     padding: 10px;
     color: $block-header-text;
   }
-  .apexcharts-canvas,
-  .apexchartsbasicxbar,
-  .apexcharts-theme-light {
-    svg text {
-      fill: $block-header-text;
-    }
-  }
-  .apexcharts-legend-text {
-    color: white !important;
+
+  .chart-error {
+    height: 80%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 46px;
+    color: #da3633;
   }
 }

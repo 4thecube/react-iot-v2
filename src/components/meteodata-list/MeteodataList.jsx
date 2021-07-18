@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import _ from "lodash";
 import { Link } from "react-router-dom";
 
@@ -6,10 +6,20 @@ import Loader from "../loader/Loader.component";
 import "./MeteodataList.styles.scss";
 
 const MeteodataList = ({ data, size, hasButton }) => {
+  const [newClassName, setNewClassName] = useState(
+    size === "small-list" ? _.first(data) : null
+  );
+
+  useEffect(() => {
+    setNewClassName((prevState) =>
+      prevState !== _.first(data) ? "newClass" : "Fuck"
+    );
+  }, [data]);
+
   return (
-    <div className={`${size}`}>
+    <div className={`${size} list`}>
       {data.length ? (
-        <table className="meteodata-list">
+        <table className="meteodata-list" cellSpacing="0" cellPadding="0">
           <thead>
             <tr className="header">
               <th className="header-option">Date</th>
@@ -20,8 +30,8 @@ const MeteodataList = ({ data, size, hasButton }) => {
           </thead>
           <tbody>
             {data.map((element) => (
-              <tr className="data" key={element.timeStamp}>
-                <td className=" field date-stamp">
+              <tr className={` ${newClassName} data`} key={element.timeStamp}>
+                <td className={` field date-stamp`}>
                   {element.dayStamp + " " + element.timeStamp}
                 </td>
                 <td className=" field temperature">
@@ -60,4 +70,4 @@ const MeteodataList = ({ data, size, hasButton }) => {
   );
 };
 
-export default MeteodataList;
+export default React.memo(MeteodataList);

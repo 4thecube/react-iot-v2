@@ -8,6 +8,11 @@ export const selectAllData = createSelector(
   (data) => data
 );
 
+export const selectAllDataReversed = createSelector(
+  [meteodataSelector],
+  (data) => _.reverse(data)
+);
+
 export const selectTemperature = createSelector([meteodataSelector], (data) =>
   data.map((dt) => parseFloat(dt.temperature.toFixed(2)))
 );
@@ -98,4 +103,56 @@ export const selectAveragePerCurrentMonth = createSelector(
       ),
     },
   ]
+);
+
+export const selectAverageAllDataTemperature = createSelector(
+  [selectOnlyCurrentMonthData],
+  (data) =>
+    parseFloat(
+      (_.sum(data.map((dt) => dt.temperature)) / data.length).toFixed(1)
+    )
+);
+
+export const selectAverageAllDataHumidity = createSelector(
+  [selectOnlyCurrentMonthData],
+  (data) =>
+    parseFloat((_.sum(data.map((dt) => dt.humidity)) / data.length).toFixed(1))
+);
+
+//TODO: Change name
+export const selectHowManyDaysGoneWhenLastElementWasAdded = createSelector(
+  [selectAllData],
+  (data) => _.last(data)
+);
+
+export const onlyTodayDataHelper = createSelector([selectAllData], (data) =>
+  data.filter((dt) =>
+    dt.dayStamp.split("-")[2] === new Date(Date.now()).getDate().toString()
+      ? dt
+      : null
+  )
+);
+
+export const selectOnlyTodayTemperature = createSelector(
+  [onlyTodayDataHelper],
+  (data) => data.map((dt) => dt.temperature.toFixed(1))
+);
+
+export const selectOnlyTodayHumidity = createSelector(
+  [onlyTodayDataHelper],
+  (data) => data.map((dt) => dt.humidity.toFixed(1))
+);
+
+export const selectTodayDate = createSelector([onlyTodayDataHelper], (data) =>
+  data.map((dt) => dt.dayStamp + " " + dt.timeStamp)
+);
+
+export const selectAverageTodayTemperature = createSelector(
+  [selectOnlyTodayTemperature],
+  (data) => (_.sum(data.map((dt) => parseFloat(dt))) / data.length).toFixed(1)
+);
+
+export const selectAverageTodayHumidity = createSelector(
+  [selectOnlyTodayHumidity],
+  (data) => (_.sum(data.map((dt) => parseFloat(dt))) / data.length).toFixed(1)
 );

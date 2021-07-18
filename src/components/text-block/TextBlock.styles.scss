@@ -4,6 +4,8 @@ $block-header: #384257;
 $block-header-text: #dae0eb;
 $yellow: #ffc107;
 $orange: #fd7e14;
+$blue: #2188ff;
+$green: #34d058;
 
 .text-block {
   width: 18vw;
@@ -20,8 +22,12 @@ $orange: #fd7e14;
   .data {
     font-size: 44px;
     font-weight: bold;
-    color: $yellow;
+    color: $blue;
     text-shadow: 3px 4px black;
+  }
+
+  .today {
+    color: $green;
   }
 
   .body {

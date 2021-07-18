@@ -1,4 +1,22 @@
 .dashboard-page {
+  .select-container {
+    position: absolute;
+    z-index: 999;
+    top: 116%;
+    left: 28%;
+    .select {
+      color: #34d058;
+      background-color: #2b2d3e;
+      width: 12vw;
+      font-size: 20px;
+      padding: 1rem;
+      outline: none;
+
+      option {
+        padding: 1rem;
+      }
+    }
+  }
   .slider-container {
     height: 100%;
     display: flex;
@@ -6,7 +24,9 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-
+    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
     .text-blocks {
       padding: 2rem;
       width: 80%;
@@ -17,13 +37,45 @@
       align-items: flex-start;
     }
   }
-  .sm-col-charts {
+
+  .slider-container:last-child {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    height: 100%;
+
+    .stats-title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 52px;
+      font-weight: bold;
+      p {
+        color: #dae0eb;
+        width: 75.2vw;
+        padding: 1rem;
+      }
+    }
+  }
+
+  .avg-stats {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
     width: 30vw;
+    background-color: #2b2d3e;
+
+    .avg-stat {
+      height: 35%;
+      width: 80%;
+      background-color: #343e59;
+    }
+    .avg-title {
+      // color: #34d058;
+      color: #dae0eb;
+      font-size: 32px;
+    }
   }
 }
 

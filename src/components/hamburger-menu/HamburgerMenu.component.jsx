@@ -16,11 +16,14 @@ const HamburgerMenu = ({ isHidden, toggleMenu }) => {
   };
   return (
     <div className="hamburger">
-      <button className="hamburger-button" onClick={toggleMenu}>
-        {isHidden ? "≡" : <>&#215;</>}
+      <button
+        className={` ${isHidden ? "three-lines" : "x-button"} hamburger-button`}
+        onClick={toggleMenu}
+      >
+        {isHidden ? "≡" : <>+</>}
       </button>
-      {!isHidden && (
-        <div className="hamburger-menu">
+      {
+        <div className={` ${isHidden ? "closed" : "opened"} hamburger-menu`}>
           <NavLink
             to="/dashboard"
             exact
@@ -38,11 +41,15 @@ const HamburgerMenu = ({ isHidden, toggleMenu }) => {
           >
             VIEW ALL DATA
           </NavLink>
-          <CustomButton logout onClickAction={handleSignOut}>
+          <CustomButton
+            customClassName="hamburger-link"
+            logout
+            onClickAction={handleSignOut}
+          >
             SIGN OUT
           </CustomButton>
         </div>
-      )}
+      }
     </div>
   );
 };
