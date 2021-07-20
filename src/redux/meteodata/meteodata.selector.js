@@ -156,3 +156,9 @@ export const selectAverageTodayHumidity = createSelector(
   [selectOnlyTodayHumidity],
   (data) => (_.sum(data.map((dt) => parseFloat(dt))) / data.length).toFixed(1)
 );
+
+export const selectCountOfRainingDays = createSelector(
+  [selectAllData],
+  (data) =>
+    _.uniq(data.filter((dt) => dt.rain < 1000).map((dt) => dt.dayStamp)).length
+);

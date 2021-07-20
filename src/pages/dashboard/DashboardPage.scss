@@ -27,6 +27,18 @@
     overflow: scroll;
     overflow-y: scroll;
     overflow-x: hidden;
+
+    .chart-and-avg {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+
+      .custom-chart {
+        height: 100%;
+      }
+    }
     .text-blocks {
       padding: 2rem;
       width: 80%;

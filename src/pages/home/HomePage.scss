@@ -6,10 +6,27 @@
   align-items: center;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
-  background-image: url("../../assets/background.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+
+  .slick-slider {
+    width: 100%;
+    height: 95%;
+
+    .slick-slide {
+      img {
+        height: 90vh;
+      }
+    }
+  }
+
+  .home-background {
+    width: 100%;
+    height: 95%;
+    filter: blur(10px);
+    z-index: 455;
+  }
 }
 .home-page::-webkit-scrollbar {
   display: none;

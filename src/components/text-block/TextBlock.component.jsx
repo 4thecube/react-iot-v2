@@ -29,6 +29,7 @@ const TextBlock = ({
       countData(data);
     }
   }, [data, special]);
+
   return (
     <div className={`${customClassName} text-block`}>
       <h2 className="title">{title}</h2>
@@ -36,11 +37,11 @@ const TextBlock = ({
         {data ? (
           <>
             <span
-              className={`${
-                fuckThisShit === "today" ? "today" : "not-today"
+              className={`${fuckThisShit === "today" ? "today" : "not-today"} ${
+                isNaN(data) && !special ? "nan-data" : ""
               } data`}
             >
-              {special ? fuckThisShit : data}
+              {special ? fuckThisShit : isNaN(data) ? "No data" : data}
             </span>
             {subtitle && <span className="subtitle">{subtitle}</span>}
           </>

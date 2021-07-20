@@ -6,6 +6,9 @@ $yellow: #ffc107;
 $orange: #fd7e14;
 
 .sign-in-form {
+  position: absolute;
+  top: 30%;
+  left: 40%;
   padding: 15px;
   display: flex;
   flex-direction: column;
@@ -14,8 +17,7 @@ $orange: #fd7e14;
   height: 50%;
   width: 25%;
   box-shadow: 0 5px 50.4px 2.6px hsl(0%, 5%, 86%/70%);
-  z-index: 1;
-  position: relative;
+  z-index: 456;
   background-color: white;
 
   .title {

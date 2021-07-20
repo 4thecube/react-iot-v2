@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
+import _ from "lodash";
 import { createStructuredSelector } from "reselect";
 import { FullPage, Slide } from "react-full-page";
 
@@ -23,6 +24,7 @@ import {
   selectAverageTodayHumidity,
   selectAverageAllDataTemperature,
   selectAverageAllDataHumidity,
+  selectCountOfRainingDays,
 } from "../../redux/meteodata/meteodata.selector";
 
 import { selectIsHidden } from "../../redux/hamburger-button/hamburger.selector";
@@ -57,6 +59,7 @@ const DashboardPage = ({
   avgHumidity,
   avgTemp,
   avgHum,
+  howManyDaysRaining,
 }) => {
   const [selectOption, setSelectOption] = useState("ALL TIME");
 
@@ -65,6 +68,8 @@ const DashboardPage = ({
     const { value } = event.target;
     setSelectOption(value);
   };
+
+  console.log();
 
   return (
     <div
@@ -84,58 +89,63 @@ const DashboardPage = ({
         </Slide>
         <Slide>
           <div className="slider-container">
-            <div className="select-container">
-              <select
-                aria-label="selectOption"
-                onChange={handleChange}
-                className="select"
-              >
-                <option value="ALL TIME">ALL TIME</option>
-                <option value="TODAY">TODAY</option>
-              </select>
-            </div>
-            {selectOption === "ALL TIME" ? (
-              <LinearChart
-                title="DATA PRESENTATION FOR"
-                color={["#ffc107", "#007bff"]}
-                firstData={{
-                  name: "Temperature",
-                  data: Object.values(temperature),
-                }}
-                secondData={{ name: "Humidity", data: Object.values(humidity) }}
-                maxValue={100}
-                date={date}
-              />
-            ) : selectOption === "TODAY" ? (
-              <LinearChart
-                title="DATA PRESENTATION FOR"
-                color={["#ffc107", "#007bff"]}
-                firstData={{
-                  name: "Temperature",
-                  data: Object.values(todayTemperature),
-                }}
-                secondData={{
-                  name: "Humidity",
-                  data: Object.values(todayHumidity),
-                }}
-                maxValue={100}
-                date={todayDate}
-              />
-            ) : null}
-            <div className="avg-stats">
-              <h2 className="avg-title">AVERAGE: {selectOption}</h2>
-              <TextBlock
-                customClassName="avg-stat"
-                title="Average temperature"
-                data={selectOption === "TODAY" ? avgTemperature : avgTemp}
-                subtitle="°C"
-              />
-              <TextBlock
-                customClassName="avg-stat"
-                title="Average humidity"
-                data={selectOption === "ALL TIME" ? avgHumidity : avgHum}
-                subtitle="%"
-              />
+            <div className="chart-and-avg">
+              <div className="select-container">
+                <select
+                  aria-label="selectOption"
+                  onChange={handleChange}
+                  className="select"
+                >
+                  <option value="ALL TIME">ALL TIME</option>
+                  <option value="TODAY">TODAY</option>
+                </select>
+              </div>
+              {selectOption === "ALL TIME" ? (
+                <LinearChart
+                  title="DATA PRESENTATION FOR"
+                  color={["#ffc107", "#007bff"]}
+                  firstData={{
+                    name: "Temperature",
+                    data: Object.values(temperature),
+                  }}
+                  secondData={{
+                    name: "Humidity",
+                    data: Object.values(humidity),
+                  }}
+                  maxValue={100}
+                  date={date}
+                />
+              ) : selectOption === "TODAY" ? (
+                <LinearChart
+                  title="DATA PRESENTATION FOR"
+                  color={["#ffc107", "#007bff"]}
+                  firstData={{
+                    name: "Temperature",
+                    data: Object.values(todayTemperature),
+                  }}
+                  secondData={{
+                    name: "Humidity",
+                    data: Object.values(todayHumidity),
+                  }}
+                  maxValue={100}
+                  date={todayDate}
+                />
+              ) : null}
+              <div className="avg-stats">
+                <h2 className="avg-title">AVERAGE: {selectOption}</h2>
+                <TextBlock
+                  customClassName="avg-stat"
+                  title="Average temperature"
+                  data={selectOption === "TODAY" ? avgTemperature : avgTemp}
+                  subtitle="°C"
+                />
+                <TextBlock
+                  customClassName="avg-stat"
+                  title="Average humidity"
+                  data={selectOption === "TODAY" ? avgHumidity : avgHum}
+                  subtitle="%"
+                />
+              </div>
             </div>
           </div>
         </Slide>
@@ -175,6 +185,7 @@ const DashboardPage = ({
                 data={onlyCurrentMonthData.length}
                 subtitle=" record(s)"
               />
+              <TextBlock title="RAINING DAYS" data={howManyDaysRaining} />
               {daysCount && (
                 <TextBlock
                   title="Last record written"
@@ -213,6 +224,7 @@ const mapStateToProps = createStructuredSelector({
   avgHumidity: selectAverageTodayHumidity,
   avgTemp: selectAverageAllDataTemperature,
   avgHum: selectAverageAllDataHumidity,
+  howManyDaysRaining: selectCountOfRainingDays,
 });
 
 const mapDispatchToProps = (dispatch) => ({

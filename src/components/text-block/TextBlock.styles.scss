@@ -11,7 +11,7 @@ $green: #34d058;
   width: 18vw;
   background-color: $block-main;
   color: $block-header-text;
-  height: 17vh;
+  height: 19vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,6 +19,17 @@ $green: #34d058;
   text-align: center;
 
   margin: 10px;
+
+  .nan-data {
+    color: #da3633 !important;
+    font-weight: 400 !important;
+  }
+
+  .title {
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
   .data {
     font-size: 44px;
     font-weight: bold;
