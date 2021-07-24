@@ -43,7 +43,11 @@ const TextBlock = ({
             >
               {special ? fuckThisShit : isNaN(data) ? "No data" : data}
             </span>
-            {subtitle && <span className="subtitle">{subtitle}</span>}
+            {subtitle && (
+              <span className="subtitle">
+                {fuckThisShit >= 2 ? "days ago" : subtitle}
+              </span>
+            )}
           </>
         ) : (
           <Loader size="small-loader" />

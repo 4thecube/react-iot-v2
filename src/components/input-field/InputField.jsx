@@ -10,6 +10,7 @@ const InputField = React.forwardRef((props, ref) => {
   return (
     <div className="group">
       <input
+        required
         className="input-field"
         {...props}
         ref={ref}

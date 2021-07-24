@@ -33,7 +33,6 @@ import MeteodataList from "../../components/meteodata-list/MeteodataList";
 
 import "./DashboardPage.scss";
 import TextBlock from "../../components/text-block/TextBlock.component";
-import ColumnChart from "../../components/column-chart/ColumnChart.component";
 import { closeMenu } from "../../redux/hamburger-button/hamburger.action";
 import IntroInfo from "../../components/intro-info/IntroInfo.component";
 import Loader from "../../components/loader/Loader.component";
@@ -188,9 +187,9 @@ const DashboardPage = ({
               <TextBlock title="RAINING DAYS" data={howManyDaysRaining} />
               {daysCount && (
                 <TextBlock
+                  subtitle
                   title="Last record written"
                   data={daysCount.dayStamp}
-                  subtitle=""
                   special
                 />
               )}

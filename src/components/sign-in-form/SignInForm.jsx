@@ -14,8 +14,6 @@ const SignInForm = ({ closeMenu }) => {
   const passwordRef = useRef();
   const auth = app.auth();
 
-  console.log(auth.currentUser ? auth.currentUser.email : null);
-
   const handleSubmit = (event) => {
     event.preventDefault();
     auth.signInWithEmailAndPassword(

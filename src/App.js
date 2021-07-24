@@ -25,6 +25,10 @@ function App({ fetchData, fetchedData }) {
     };
   }, []);
 
+  //FIXME:
+  // 1. Dashboard page is kinda overload - need to split shit in little shitties
+  // 2. Names need to be more clear
+
   return (
     <div className="app">
       <Switch>
