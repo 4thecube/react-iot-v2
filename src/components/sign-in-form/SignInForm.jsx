@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { connect } from "react-redux";
 
 import app from "../../firebase";
@@ -13,14 +13,23 @@ const SignInForm = ({ closeMenu }) => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const auth = app.auth();
+  const [authError, setAuthError] = useState(null);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    auth.signInWithEmailAndPassword(
-      emailRef.current.value,
-      passwordRef.current.value
-    );
+    try {
+      await auth
+        .signInWithEmailAndPassword(
+          emailRef.current.value,
+          passwordRef.current.value
+        )
+        .catch((error) => {
+          setAuthError(error.message);
+        });
+    } catch (error) {}
   };
+
+  console.log(authError);
 
   return (
     <div className="sign-in-form">
@@ -33,6 +42,7 @@ const SignInForm = ({ closeMenu }) => {
           ref={passwordRef}
           label="password"
         />
+        <div className="sign-in-error">{authError}</div>
         <div className="buttons">
           <CustomButton login type="submit" onClickAction={closeMenu}>
             SIGN IN

@@ -26,12 +26,13 @@ $green: #34d058;
   }
 
   .title {
+    font-size: 1vw;
     text-transform: uppercase;
     letter-spacing: 1.5px;
   }
 
   .data {
-    font-size: 44px;
+    font-size: 2vw;
     font-weight: bold;
     color: $blue;
     text-shadow: 3px 4px black;
@@ -50,6 +51,27 @@ $green: #34d058;
     .subtitle {
       font-size: 24px;
       margin-left: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .text-block {
+    width: 40vw;
+    height: 30vh;
+
+    .title {
+      font-size: 5vw;
+    }
+    .body {
+      display: flex;
+      flex-direction: column;
+      .data {
+        font-size: 9vw;
+      }
+      .subtitle {
+        font-size: 5vw;
+      }
     }
   }
 }

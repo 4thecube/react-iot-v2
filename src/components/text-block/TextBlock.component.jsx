@@ -10,7 +10,7 @@ const TextBlock = ({
   special = false,
   customClassName = "",
 }) => {
-  const [fuckThisShit, setFuckThisShit] = useState(0);
+  const [daysCount, setDaysCount] = useState(0);
   useEffect(() => {
     const countData = (dataAsArgs) => {
       let res = Math.floor(
@@ -23,13 +23,17 @@ const TextBlock = ({
       } else if (res === 1) {
         res = "yesterday";
       }
-      setFuckThisShit(res);
+      setDaysCount(res);
     };
     if (special) {
       countData(data);
     }
   }, [data, special]);
 
+  const isNanDataCheck = isNaN(data) ? "No data" : data;
+
+  console.log(isNanDataCheck);
+  console.log(daysCount);
   return (
     <div className={`${customClassName} text-block`}>
       <h2 className="title">{title}</h2>
@@ -37,16 +41,20 @@ const TextBlock = ({
         {data ? (
           <>
             <span
-              className={`${fuckThisShit === "today" ? "today" : "not-today"} ${
+              className={`${daysCount === "today" ? "today" : "not-today"} ${
                 isNaN(data) && !special ? "nan-data" : ""
               } data`}
             >
-              {special ? fuckThisShit : isNaN(data) ? "No data" : data}
+              {special ? daysCount : isNanDataCheck}
             </span>
-            {subtitle && (
-              <span className="subtitle">
-                {fuckThisShit >= 2 ? "days ago" : subtitle}
-              </span>
+            {isNanDataCheck === "No data" ? (
+              special ? (
+                daysCount >= 2 ? (
+                  <span className="subtitle"> days ago</span>
+                ) : null
+              ) : null
+            ) : (
+              <span className="subtitle">{subtitle ? subtitle : special}</span>
             )}
           </>
         ) : (

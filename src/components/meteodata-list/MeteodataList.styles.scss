@@ -257,3 +257,20 @@ td {
     opacity: 1;
   }
 }
+
+@media screen and (max-width: 420px) {
+  .small-list {
+    width: 100vw;
+    .meteodata-list {
+      .header {
+        font-size: 4vw;
+      }
+      .field {
+        font-size: 4vw;
+      }
+      .date-stamp {
+        font-size: 3vw;
+      }
+    }
+  }
+}

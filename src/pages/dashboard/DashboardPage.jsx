@@ -35,7 +35,6 @@ import "./DashboardPage.scss";
 import TextBlock from "../../components/text-block/TextBlock.component";
 import { closeMenu } from "../../redux/hamburger-button/hamburger.action";
 import IntroInfo from "../../components/intro-info/IntroInfo.component";
-import Loader from "../../components/loader/Loader.component";
 
 const DashboardPage = ({
   allData,
@@ -68,7 +67,7 @@ const DashboardPage = ({
     setSelectOption(value);
   };
 
-  console.log();
+  console.log(onlyCurrentMonthData);
 
   return (
     <div
@@ -89,16 +88,6 @@ const DashboardPage = ({
         <Slide>
           <div className="slider-container">
             <div className="chart-and-avg">
-              <div className="select-container">
-                <select
-                  aria-label="selectOption"
-                  onChange={handleChange}
-                  className="select"
-                >
-                  <option value="ALL TIME">ALL TIME</option>
-                  <option value="TODAY">TODAY</option>
-                </select>
-              </div>
               {selectOption === "ALL TIME" ? (
                 <LinearChart
                   title="DATA PRESENTATION FOR"
@@ -113,6 +102,7 @@ const DashboardPage = ({
                   }}
                   maxValue={100}
                   date={date}
+                  changeEvent={handleChange}
                 />
               ) : selectOption === "TODAY" ? (
                 <LinearChart
@@ -128,6 +118,7 @@ const DashboardPage = ({
                   }}
                   maxValue={100}
                   date={todayDate}
+                  changeEvent={handleChange}
                 />
               ) : null}
               <div className="avg-stats">
@@ -181,7 +172,8 @@ const DashboardPage = ({
               />
               <TextBlock
                 title="In this month we get"
-                data={onlyCurrentMonthData.length}
+                // move to selectors
+                data={onlyCurrentMonthData.length.toString()}
                 subtitle=" record(s)"
               />
               <TextBlock title="RAINING DAYS" data={howManyDaysRaining} />

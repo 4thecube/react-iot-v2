@@ -28,7 +28,11 @@ function App({ fetchData, fetchedData }) {
   //FIXME:
   // 1. Dashboard page is kinda overload - need to split shit in little shitties
   // 2. Names need to be more clear
-
+  //- DONE  3. Speed up the background animation
+  //- DONE  4. Change height of blocks on second slide
+  //- DONE  5. Message from invalid inputs
+  //- DONE  6. Change Sign In for smaller displays - 35%
+  //- DONE 7. Fix subtitle in the last text-block;
   return (
     <div className="app">
       <Switch>

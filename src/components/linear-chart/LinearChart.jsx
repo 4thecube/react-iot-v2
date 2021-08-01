@@ -10,6 +10,7 @@ const LinearChart = ({
   title,
   color,
   maxValue,
+  changeEvent,
 }) => {
   const [chartOptions, setChartOptions] = useState({
     options: {
@@ -114,7 +115,19 @@ const LinearChart = ({
 
   return (
     <div className="custom-chart">
-      <h1 className="chart-title">{title}</h1>{" "}
+      <div className="chart-title">
+        <h1>{title}</h1>
+        <div className="select-container">
+          <select
+            aria-label="selectOption"
+            onChange={changeEvent}
+            className="select"
+          >
+            <option value="ALL TIME">ALL TIME</option>
+            <option value="TODAY">TODAY</option>
+          </select>
+        </div>
+      </div>
       {date && firstData && secondData ? (
         firstData.data.length ? (
           <Chart

@@ -11,6 +11,24 @@ $block-header-text: #dae0eb;
   .chart-title {
     padding: 10px;
     color: $block-header-text;
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .select-container {
+      .select {
+        color: #34d058;
+        background-color: #2b2d3e;
+        width: 12vw;
+        font-size: 20px;
+        padding: 1rem;
+        outline: none;
+
+        option {
+          padding: 1rem;
+        }
+      }
+    }
   }
 
   .chart-error {
@@ -21,5 +39,25 @@ $block-header-text: #dae0eb;
     align-items: center;
     font-size: 46px;
     color: #da3633;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .custom-chart {
+    .chart-title {
+      width: 100%;
+      font-size: 4vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+
+      .select-container {
+        .select {
+          width: 100%;
+        }
+      }
+    }
   }
 }

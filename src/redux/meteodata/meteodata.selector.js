@@ -106,7 +106,7 @@ export const selectAveragePerCurrentMonth = createSelector(
 );
 
 export const selectAverageAllDataTemperature = createSelector(
-  [selectOnlyCurrentMonthData],
+  [selectAllData],
   (data) =>
     parseFloat(
       (_.sum(data.map((dt) => dt.temperature)) / data.length).toFixed(1)
@@ -114,7 +114,7 @@ export const selectAverageAllDataTemperature = createSelector(
 );
 
 export const selectAverageAllDataHumidity = createSelector(
-  [selectOnlyCurrentMonthData],
+  [selectAllData],
   (data) =>
     parseFloat((_.sum(data.map((dt) => dt.humidity)) / data.length).toFixed(1))
 );

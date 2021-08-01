@@ -1,22 +1,4 @@
 .dashboard-page {
-  .select-container {
-    position: absolute;
-    z-index: 999;
-    top: 116%;
-    left: 28%;
-    .select {
-      color: #34d058;
-      background-color: #2b2d3e;
-      width: 12vw;
-      font-size: 20px;
-      padding: 1rem;
-      outline: none;
-
-      option {
-        padding: 1rem;
-      }
-    }
-  }
   .slider-container {
     height: 100%;
     display: flex;
@@ -36,7 +18,7 @@
       align-items: center;
 
       .custom-chart {
-        height: 100%;
+        height: 75vh;
       }
     }
     .text-blocks {
@@ -59,7 +41,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 52px;
+      font-size: 5vw;
       font-weight: bold;
       p {
         color: #dae0eb;
@@ -74,7 +56,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: 75vh;
     width: 30vw;
     background-color: #2b2d3e;
 
@@ -93,4 +75,46 @@
 
 .blured {
   filter: blur(2px);
+}
+
+@media screen and (max-width: 420px) {
+  .dashboard-page {
+    .slider-container {
+      overflow-y: scroll;
+    }
+    .slider-container:last-child {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      height: 100%;
+
+      .text-blocks {
+        padding: 0;
+        width: 100%;
+      }
+      overflow-y: scroll;
+    }
+  }
+
+  .chart-and-avg {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    .custom-chart {
+      width: 100%;
+    }
+    .avg-stats {
+      width: 100%;
+      .avg-title {
+        text-align: center;
+        font-size: 6vw;
+      }
+    }
+    .slider-container:first-child {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
 }

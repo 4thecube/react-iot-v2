@@ -98,6 +98,16 @@
   }
 }
 
+@keyframes showMenuMobile {
+  from {
+    width: 0;
+    z-index: 222;
+  }
+  to {
+    width: 55vw;
+  }
+}
+
 @keyframes showMenuButtons {
   from {
     width: 0;
@@ -123,6 +133,21 @@
   }
 }
 
+@keyframes hideMenuMobile {
+  from {
+    width: 55vw;
+    .hamburger-link {
+      width: 90%;
+    }
+  }
+  to {
+    width: 0;
+    .hamburger-link {
+      width: 0;
+    }
+  }
+}
+
 @keyframes hideMenuButtons {
   from {
     width: 15vw;
@@ -131,5 +156,38 @@
   to {
     opacity: 0;
     width: 0;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .hamburger {
+    .hamburger-button {
+      width: 30px;
+      height: 30px;
+      font-size: 10vw;
+    }
+    .hamburger-menu {
+      width: 55vw;
+      height: 110vh;
+      .hamburger-link {
+        width: 90%;
+        font-size: 5vw;
+      }
+    }
+    .opened {
+      animation-name: showMenuMobile;
+      animation-duration: 0.5s;
+    }
+    .closed {
+      width: 0;
+      animation-name: hideMenuMobile;
+      animation-duration: 0.5s;
+      .hamburger-link {
+        display: none;
+        opacity: 1;
+        width: 0;
+        animation: hideMenuButtons 0.4s;
+      }
+    }
   }
 }
