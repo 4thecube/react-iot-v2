@@ -4,8 +4,8 @@ import _ from "lodash";
 import { createStructuredSelector } from "reselect";
 import { FullPage, Slide } from "react-full-page";
 
+//selectors ?
 import {
-  selectAllData,
   selectDataFromRainSensor,
   selectFullDate,
   selectHumidity,
@@ -15,8 +15,6 @@ import {
   selectTemperature,
   selectMinHumidity,
   selectFiveLastElements,
-  selectOnlyCurrentMonthData,
-  selectHowManyDaysGoneWhenLastElementWasAdded,
   selectOnlyTodayTemperature,
   selectOnlyTodayHumidity,
   selectTodayDate,
@@ -24,7 +22,6 @@ import {
   selectAverageTodayHumidity,
   selectAverageAllDataTemperature,
   selectAverageAllDataHumidity,
-  selectCountOfRainingDays,
 } from "../../redux/meteodata/meteodata.selector";
 
 import { selectIsHidden } from "../../redux/hamburger-button/hamburger.selector";
@@ -35,21 +32,16 @@ import "./DashboardPage.scss";
 import TextBlock from "../../components/text-block/TextBlock.component";
 import { closeMenu } from "../../redux/hamburger-button/hamburger.action";
 import IntroInfo from "../../components/intro-info/IntroInfo.component";
+import StatisticalData from "../../components/statistical-data/StatisticalData.component";
 
 const DashboardPage = ({
-  allData,
   temperature,
   humidity,
   date,
-  maxTemp,
-  minTemperature,
-  maxHumidity,
-  minHumidity,
   onlyCurrentMonthData,
   fiveLastElements,
   isHidden,
   closeMenu,
-  daysCount,
   todayTemperature,
   todayHumidity,
   todayDate,
@@ -57,7 +49,6 @@ const DashboardPage = ({
   avgHumidity,
   avgTemp,
   avgHum,
-  howManyDaysRaining,
 }) => {
   const [selectOption, setSelectOption] = useState("ALL TIME");
 
@@ -66,8 +57,6 @@ const DashboardPage = ({
     const { value } = event.target;
     setSelectOption(value);
   };
-
-  console.log(onlyCurrentMonthData);
 
   return (
     <div
@@ -141,51 +130,7 @@ const DashboardPage = ({
         </Slide>
         <Slide>
           <div className="slider-container">
-            <div className="stats-title">
-              <p>STATISTICAL DATA</p>
-            </div>
-            <div className="text-blocks">
-              <TextBlock
-                title="Highest temperature"
-                data={maxTemp}
-                subtitle="°C"
-              />
-              <TextBlock
-                title="Lowest temperature"
-                data={minTemperature}
-                subtitle="°C"
-              />
-              <TextBlock
-                title="Highest humidity"
-                data={maxHumidity}
-                subtitle="%"
-              />
-              <TextBlock
-                title="Lowest humidity"
-                data={minHumidity}
-                subtitle="%"
-              />
-              <TextBlock
-                title="Total record"
-                data={allData.length}
-                subtitle=" record(s)"
-              />
-              <TextBlock
-                title="In this month we get"
-                // move to selectors
-                data={onlyCurrentMonthData.length.toString()}
-                subtitle=" record(s)"
-              />
-              <TextBlock title="RAINING DAYS" data={howManyDaysRaining} />
-              {daysCount && (
-                <TextBlock
-                  subtitle
-                  title="Last record written"
-                  data={daysCount.dayStamp}
-                  special
-                />
-              )}
-            </div>
+            <StatisticalData />
           </div>
         </Slide>
       </FullPage>
@@ -196,18 +141,11 @@ const DashboardPage = ({
 // TODO: Fix the names u fuck
 const mapStateToProps = createStructuredSelector({
   temperature: selectTemperature,
-  maxTemp: selectMaxTemperature,
-  minTemperature: selectMinTemperature,
   humidity: selectHumidity,
-  maxHumidity: selectMaxHumidity,
-  minHumidity: selectMinHumidity,
   rainSensor: selectDataFromRainSensor,
   date: selectFullDate,
   fiveLastElements: selectFiveLastElements,
-  onlyCurrentMonthData: selectOnlyCurrentMonthData,
   isHidden: selectIsHidden,
-  allData: selectAllData,
-  daysCount: selectHowManyDaysGoneWhenLastElementWasAdded,
   todayTemperature: selectOnlyTodayTemperature,
   todayHumidity: selectOnlyTodayHumidity,
   todayDate: selectTodayDate,
@@ -215,7 +153,6 @@ const mapStateToProps = createStructuredSelector({
   avgHumidity: selectAverageTodayHumidity,
   avgTemp: selectAverageAllDataTemperature,
   avgHum: selectAverageAllDataHumidity,
-  howManyDaysRaining: selectCountOfRainingDays,
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -1,5 +1,5 @@
 import { createSelector } from "reselect";
-import _ from "lodash";
+import _, { create } from "lodash";
 
 const meteodataSelector = (state) => state.data.fetchedData || [];
 
@@ -84,13 +84,13 @@ export const convertNotCurrentDataToNull = createSelector(
     )
 );
 
-export const selectOnlyCurrentMonthData = createSelector(
+export const selectCurrentMonthData = createSelector(
   [convertNotCurrentDataToNull],
   (data) => data.filter((dt) => dt !== null)
 );
 
 export const selectAveragePerCurrentMonth = createSelector(
-  [selectOnlyCurrentMonthData],
+  [selectCurrentMonthData],
   (data) => [
     {
       temperature: parseFloat(
@@ -161,4 +161,14 @@ export const selectCountOfRainingDays = createSelector(
   [selectAllData],
   (data) =>
     _.uniq(data.filter((dt) => dt.rain < 1000).map((dt) => dt.dayStamp)).length
+);
+
+export const selectLengthOfAllRecords = createSelector(
+  [selectAllData],
+  (data) => data.length
+);
+
+export const selectLengthOfMonthRecords = createSelector(
+  [selectCurrentMonthData],
+  (data) => data.length.toString()
 );
