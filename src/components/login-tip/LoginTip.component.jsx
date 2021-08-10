@@ -5,7 +5,7 @@ import "./LoginTip.styles.scss";
 const LoginTip = () => {
   return (
     <div className="login-tip">
-      <span className="login-t-title">USE FOLLOWING CREDENTIALS</span>
+      <span className="login-t-title">USE THE FOLLOWING CREDENTIALS</span>
       <div className="login-t-credentials">
         <span className="login-t-field">
           Email: <span className="login-t-f-value"> dot@dot.ua</span>
