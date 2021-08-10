@@ -42,3 +42,36 @@ $orange: #fd7e14;
     min-height: 20px;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .sign-in-form {
+    height: 60vh;
+    width: 75vw;
+    top: 40%;
+    .title {
+      width: 100%;
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translate(-50%, -80%);
+      margin-top: 50px;
+      text-align: center;
+      color: #28a745;
+      z-index: 22;
+      font-size: 40px;
+    }
+    .buttons {
+      margin: 0;
+      button {
+        height: 10vh;
+        width: 50%;
+      }
+    }
+    .sign-in-error {
+      color: red;
+      width: 80vw;
+      font-size: 12px;
+      min-height: 20px;
+    }
+  }
+}

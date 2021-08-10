@@ -1,15 +1,15 @@
 import React from "react";
 import Slider from "react-slick";
-import app from "../../firebase";
 
 import SignInForm from "../../components/sign-in-form/SignInForm";
-import "./HomePage.scss";
+import SliderImage from "../../components/slider-image/SliderImage.component";
+import LoginTip from "../../components/login-tip/LoginTip.component";
 
 import frSlide from "../../assets/fistSlide.png";
 import scSlide from "../../assets/secondSlide.png";
 import thSlide from "../../assets/thirdSlide.png";
-import SliderImage from "../../components/slider-image/SliderImage.component";
 
+import "./HomePage.scss";
 const slideImages = [frSlide, scSlide, thSlide];
 
 const HomePage = () => {
@@ -26,6 +26,7 @@ const HomePage = () => {
 
   return (
     <div className="home-page">
+      <LoginTip />
       <Slider {...settings}>
         {slideImages.map((img) => (
           <SliderImage slide={img} />
