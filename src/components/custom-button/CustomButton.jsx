@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import "./CustomButton.scss";
+import './CustomButton.scss';
 
 const CustomButton = ({
   children,
@@ -12,8 +12,8 @@ const CustomButton = ({
   return (
     <button
       onClick={onClickAction}
-      className={`${login ? "green" : ""} ${logout ? "red" : ""} ${
-        customClassName ? customClassName : ""
+      className={`${login ? 'green' : ''} ${logout ? 'red' : ''} ${
+        customClassName ? customClassName : ''
       } custom-button`}
     >
       {children}

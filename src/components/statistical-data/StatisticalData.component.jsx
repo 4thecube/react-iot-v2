@@ -1,12 +1,11 @@
-import React from "react";
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
+import React from 'react';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
-import TextBlock from "../text-block/TextBlock.component";
+import TextBlock from '../text-block/TextBlock.component';
 
 //selectors ?
 import {
-  selectAllData,
   selectMaxHumidity,
   selectMaxTemperature,
   selectMinHumidity,
@@ -15,7 +14,7 @@ import {
   selectLengthOfMonthRecords,
   selectHowManyDaysGoneWhenLastElementWasAdded,
   selectCountOfRainingDays,
-} from "../../redux/meteodata/meteodata.selector";
+} from '../../redux/meteodata/meteodata.selector';
 
 const StatisticalData = ({
   lowestTemperature,

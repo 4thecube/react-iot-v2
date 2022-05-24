@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { Redirect, Route, Switch } from "react-router-dom";
-import { connect } from "react-redux";
+import React, { useEffect, useState } from 'react';
+import { Redirect, Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-import app from "./firebase";
-import HomePage from "./pages/home/HomePage";
-import { fetchDataAsync } from "./redux/meteodata/meteodata.actions";
-import "./App.scss";
-import DashboardPage from "./pages/dashboard/DashboardPage";
-import HamburgerMenu from "./components/hamburger-menu/HamburgerMenu.component";
-import DataListPage from "./pages/data-list/DataList.page";
+import app from './firebase';
+import HomePage from './pages/home/HomePage';
+import { fetchDataAsync } from './redux/meteodata/meteodata.actions';
+
+import DashboardPage from './pages/dashboard/DashboardPage';
+import HamburgerMenu from './components/hamburger-menu/HamburgerMenu.component';
+import DataListPage from './pages/data-list/DataList.page';
+
+import './App.scss';
 
 function App({ fetchData, fetchedData }) {
   const [data, setData] = useState([]);

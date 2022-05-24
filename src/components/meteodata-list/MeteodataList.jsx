@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from "react";
-import _ from "lodash";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import _ from 'lodash';
+import { Link } from 'react-router-dom';
 
-import Loader from "../loader/Loader.component";
-import "./MeteodataList.styles.scss";
+import Loader from '../loader/Loader.component';
+import './MeteodataList.styles.scss';
 
 const MeteodataList = ({ data, size, hasButton }) => {
   const [newClassName, setNewClassName] = useState(
-    size === "small-list" ? _.first(data) : null
+    size === 'small-list' ? _.first(data) : null
   );
 
   useEffect(() => {
     setNewClassName((prevState) =>
-      prevState !== _.first(data) ? "newClass" : "Fuck"
+      prevState !== _.first(data) ? 'newClass' : 'Fuck'
     );
   }, [data]);
 
@@ -31,8 +31,8 @@ const MeteodataList = ({ data, size, hasButton }) => {
           <tbody>
             {data.map((element) => (
               <tr className={` ${newClassName} data`} key={element.timeStamp}>
-                <td className={` field date-stamp`}>
-                  {element.dayStamp + " " + element.timeStamp}
+                <td className={' field date-stamp'}>
+                  {element.dayStamp + ' ' + element.timeStamp}
                 </td>
                 <td className=" field temperature">
                   {element.temperature.toFixed(1)}°C

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
-import _ from "lodash";
-import { createStructuredSelector } from "reselect";
-import { FullPage, Slide } from "react-full-page";
+import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
+import _ from 'lodash';
+import { createStructuredSelector } from 'reselect';
+import { FullPage, Slide } from 'react-full-page';
 
 //selectors ?
 import {
@@ -22,17 +22,17 @@ import {
   selectAverageTodayHumidity,
   selectAverageAllDataTemperature,
   selectAverageAllDataHumidity,
-} from "../../redux/meteodata/meteodata.selector";
+} from '../../redux/meteodata/meteodata.selector';
 
-import { selectIsHidden } from "../../redux/hamburger-button/hamburger.selector";
-import LinearChart from "../../components/linear-chart/LinearChart";
-import MeteodataList from "../../components/meteodata-list/MeteodataList";
+import { selectIsHidden } from '../../redux/hamburger-button/hamburger.selector';
+import LinearChart from '../../components/linear-chart/LinearChart';
+import MeteodataList from '../../components/meteodata-list/MeteodataList';
 
-import "./DashboardPage.scss";
-import TextBlock from "../../components/text-block/TextBlock.component";
-import { closeMenu } from "../../redux/hamburger-button/hamburger.action";
-import IntroInfo from "../../components/intro-info/IntroInfo.component";
-import StatisticalData from "../../components/statistical-data/StatisticalData.component";
+import './DashboardPage.scss';
+import TextBlock from '../../components/text-block/TextBlock.component';
+import { closeMenu } from '../../redux/hamburger-button/hamburger.action';
+import IntroInfo from '../../components/intro-info/IntroInfo.component';
+import StatisticalData from '../../components/statistical-data/StatisticalData.component';
 
 const DashboardPage = ({
   temperature,
@@ -50,7 +50,7 @@ const DashboardPage = ({
   avgTemp,
   avgHum,
 }) => {
-  const [selectOption, setSelectOption] = useState("ALL TIME");
+  const [selectOption, setSelectOption] = useState('ALL TIME');
 
   // Can I move this to redux?
   const handleChange = (event) => {
@@ -61,7 +61,7 @@ const DashboardPage = ({
   return (
     <div
       onClick={closeMenu}
-      className={`${isHidden ? "hidden" : "blured"} dashboard-page`}
+      className={`${isHidden ? 'hidden' : 'blured'} dashboard-page`}
     >
       <FullPage>
         <Slide>
@@ -77,32 +77,32 @@ const DashboardPage = ({
         <Slide>
           <div className="slider-container">
             <div className="chart-and-avg">
-              {selectOption === "ALL TIME" ? (
+              {selectOption === 'ALL TIME' ? (
                 <LinearChart
                   title="DATA PRESENTATION FOR"
-                  color={["#ffc107", "#007bff"]}
+                  color={['#ffc107', '#007bff']}
                   firstData={{
-                    name: "Temperature",
+                    name: 'Temperature',
                     data: Object.values(temperature),
                   }}
                   secondData={{
-                    name: "Humidity",
+                    name: 'Humidity',
                     data: Object.values(humidity),
                   }}
                   maxValue={100}
                   date={date}
                   changeEvent={handleChange}
                 />
-              ) : selectOption === "TODAY" ? (
+              ) : selectOption === 'TODAY' ? (
                 <LinearChart
                   title="DATA PRESENTATION FOR"
-                  color={["#ffc107", "#007bff"]}
+                  color={['#ffc107', '#007bff']}
                   firstData={{
-                    name: "Temperature",
+                    name: 'Temperature',
                     data: Object.values(todayTemperature),
                   }}
                   secondData={{
-                    name: "Humidity",
+                    name: 'Humidity',
                     data: Object.values(todayHumidity),
                   }}
                   maxValue={100}
@@ -115,13 +115,13 @@ const DashboardPage = ({
                 <TextBlock
                   customClassName="avg-stat"
                   title="Average temperature"
-                  data={selectOption === "TODAY" ? avgTemperature : avgTemp}
+                  data={selectOption === 'TODAY' ? avgTemperature : avgTemp}
                   subtitle="°C"
                 />
                 <TextBlock
                   customClassName="avg-stat"
                   title="Average humidity"
-                  data={selectOption === "TODAY" ? avgHumidity : avgHum}
+                  data={selectOption === 'TODAY' ? avgHumidity : avgHum}
                   subtitle="%"
                 />
               </div>

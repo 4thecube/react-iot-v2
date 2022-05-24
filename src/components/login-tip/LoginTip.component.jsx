@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import "./LoginTip.styles.scss";
+import './LoginTip.styles.scss';
 
 const LoginTip = () => {
   return (

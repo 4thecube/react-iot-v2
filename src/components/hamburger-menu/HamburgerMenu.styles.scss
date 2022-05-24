@@ -119,32 +119,32 @@
 }
 
 @keyframes hideMenu {
-  from {
-    width: 20vw;
-    .hamburger-link {
-      width: 15vw;
-    }
-  }
-  to {
-    width: 0;
-    .hamburger-link {
-      width: 0;
-    }
-  }
+  // from {
+  //   width: 20vw;
+  //   .hamburger-link {
+  //     width: 15vw;
+  //   }
+  // }
+  // to {
+  //   width: 0;
+  //   .hamburger-link {
+  //     width: 0;
+  //   }
+  // }
 }
 
 @keyframes hideMenuMobile {
   from {
     width: 55vw;
-    .hamburger-link {
-      width: 90%;
-    }
+    // .hamburger-link {
+    //   width: 90%;
+    // }
   }
   to {
     width: 0;
-    .hamburger-link {
-      width: 0;
-    }
+    // .hamburger-link {
+    //   width: 0;
+    // }
   }
 }
 

@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
-import "./Loader.styles.scss";
+import './Loader.styles.scss';
 
 const Loader = ({ size }) => {
   return (
-    <div className={`loader `}>
+    <div className={'loader '}>
       <div className={`${size} lds-dual-ring`}></div>
     </div>
   );

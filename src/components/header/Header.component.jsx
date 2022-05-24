@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import app from "../../firebase";
-import CustomButton from "../custom-button/CustomButton";
-import "./Header.styles.scss";
+import app from '../../firebase';
+import CustomButton from '../custom-button/CustomButton';
+import './Header.styles.scss';
 
 const Header = () => {
   const handleSignOut = () => {

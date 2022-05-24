@@ -1,15 +1,15 @@
-import React from "react";
-import Slider from "react-slick";
+import React from 'react';
+import Slider from 'react-slick';
 
-import SignInForm from "../../components/sign-in-form/SignInForm";
-import SliderImage from "../../components/slider-image/SliderImage.component";
-import LoginTip from "../../components/login-tip/LoginTip.component";
+import SignInForm from '../../components/sign-in-form/SignInForm';
+import SliderImage from '../../components/slider-image/SliderImage.component';
+import LoginTip from '../../components/login-tip/LoginTip.component';
 
-import frSlide from "../../assets/fistSlide.png";
-import scSlide from "../../assets/secondSlide.png";
-import thSlide from "../../assets/thirdSlide.png";
+import frSlide from '../../assets/fistSlide.png';
+import scSlide from '../../assets/secondSlide.png';
+import thSlide from '../../assets/thirdSlide.png';
 
-import "./HomePage.scss";
+import './HomePage.scss';
 const slideImages = [frSlide, scSlide, thSlide];
 
 const HomePage = () => {

@@ -4,17 +4,17 @@ const INITIAL_STATE = {
 
 export const hamburgerReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case "TOGGLE_IS_HIDDEN":
-      return {
-        ...state,
-        isHidden: !state.isHidden,
-      };
-    case "CLOSE_MENU":
-      return {
-        ...state,
-        isHidden: true,
-      };
-    default:
-      return state;
+  case 'TOGGLE_IS_HIDDEN':
+    return {
+      ...state,
+      isHidden: !state.isHidden,
+    };
+  case 'CLOSE_MENU':
+    return {
+      ...state,
+      isHidden: true,
+    };
+  default:
+    return state;
   }
 };

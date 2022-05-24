@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import "./InputField.scss";
+import './InputField.scss';
 
 const InputField = React.forwardRef((props, ref) => {
   const [value, setValue] = useState(null);
@@ -17,10 +17,10 @@ const InputField = React.forwardRef((props, ref) => {
         onChange={handleChange}
       />
       {props.label ? (
-        <label className={`${value ? "shrink" : ""} form-input-label`}>
+        <label className={`${value ? 'shrink' : ''} form-input-label`}>
           {props.label}
         </label>
-      ) : null}{" "}
+      ) : null}{' '}
     </div>
   );
 });

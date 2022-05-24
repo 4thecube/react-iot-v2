@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import Chart from "react-apexcharts";
+import React, { useEffect, useState } from 'react';
+import Chart from 'react-apexcharts';
 
-import "./LinearChart.styles.scss";
+import './LinearChart.styles.scss';
 
 const LinearChart = ({
   date,
@@ -15,7 +15,7 @@ const LinearChart = ({
   const [chartOptions, setChartOptions] = useState({
     options: {
       chart: {
-        id: "basic-bar",
+        id: 'basic-bar',
       },
       xaxis: {
         categories: date,
@@ -26,13 +26,13 @@ const LinearChart = ({
         tickAmount: 5,
       },
       stroke: {
-        curve: "smooth",
+        curve: 'smooth',
       },
       colors: color,
     },
     title: {
-      text: "Meteodata",
-      align: "left",
+      text: 'Meteodata',
+      align: 'left',
       offsetY: 25,
       offsetX: 20,
     },
@@ -50,12 +50,12 @@ const LinearChart = ({
       },
     },
     series: [
-      { name: "Fuck you", data: [0, 0, 0] },
-      { name: "And you", data: [0, 0, 0] },
+      { name: 'Fuck you', data: [0, 0, 0] },
+      { name: 'And you', data: [0, 0, 0] },
     ],
     legend: {
-      position: "top",
-      horizontalAlign: "right",
+      position: 'top',
+      horizontalAlign: 'right',
       offsetY: -20,
     },
   });
@@ -64,7 +64,7 @@ const LinearChart = ({
     setChartOptions({
       options: {
         chart: {
-          id: "basic-bar",
+          id: 'basic-bar',
           dropShadow: {
             enabled: true,
             top: 3,
@@ -85,13 +85,13 @@ const LinearChart = ({
           tickAmount: 5,
         },
         stroke: {
-          curve: "smooth",
+          curve: 'smooth',
           width: 5,
         },
         colors: color,
         title: {
-          text: "Meteodata",
-          align: "left",
+          text: 'Meteodata',
+          align: 'left',
           offsetY: 0,
           offsetX: 20,
         },
@@ -103,10 +103,10 @@ const LinearChart = ({
           },
         },
         legend: {
-          position: "top",
-          horizontalAlign: "right",
+          position: 'top',
+          horizontalAlign: 'right',
           offsetY: 0,
-          color: "white",
+          color: 'white',
         },
       },
       series: [firstData, secondData],

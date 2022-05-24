@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import { NavLink } from "react-router-dom";
-import { createStructuredSelector } from "reselect";
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import { createStructuredSelector } from 'reselect';
 
-import { toggleMenuHidden } from "../../redux/hamburger-button/hamburger.action";
-import { selectIsHidden } from "../../redux/hamburger-button/hamburger.selector";
-import app from "../../firebase";
-import CustomButton from "../custom-button/CustomButton";
+import { toggleMenuHidden } from '../../redux/hamburger-button/hamburger.action';
+import { selectIsHidden } from '../../redux/hamburger-button/hamburger.selector';
+import app from '../../firebase';
+import CustomButton from '../custom-button/CustomButton';
 
-import "./HamburgerMenu.styles.scss";
+import './HamburgerMenu.styles.scss';
 
 const HamburgerMenu = ({ isHidden, toggleMenu }) => {
   const handleSignOut = () => {
@@ -17,13 +17,13 @@ const HamburgerMenu = ({ isHidden, toggleMenu }) => {
   return (
     <div className="hamburger">
       <button
-        className={` ${isHidden ? "three-lines" : "x-button"} hamburger-button`}
+        className={` ${isHidden ? 'three-lines' : 'x-button'} hamburger-button`}
         onClick={toggleMenu}
       >
-        {isHidden ? "≡" : <>+</>}
+        {isHidden ? '≡' : <>+</>}
       </button>
       {
-        <div className={` ${isHidden ? "closed" : "opened"} hamburger-menu`}>
+        <div className={` ${isHidden ? 'closed' : 'opened'} hamburger-menu`}>
           <NavLink
             to="/dashboard"
             exact

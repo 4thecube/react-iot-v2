@@ -1,12 +1,12 @@
-import React, { useRef, useState } from "react";
-import { connect } from "react-redux";
+import React, { useRef, useState } from 'react';
+import { connect } from 'react-redux';
 
-import app from "../../firebase";
-import CustomButton from "../custom-button/CustomButton";
-import InputField from "../input-field/InputField";
-import { closeMenu } from "../../redux/hamburger-button/hamburger.action";
+import app from '../../firebase';
+import CustomButton from '../custom-button/CustomButton';
+import InputField from '../input-field/InputField';
+import { closeMenu } from '../../redux/hamburger-button/hamburger.action';
 
-import "./SignInForm.scss";
+import './SignInForm.scss';
 
 const SignInForm = ({ closeMenu }) => {
   // in this component we wanna hold state/handleChange/onSubmit
@@ -26,10 +26,8 @@ const SignInForm = ({ closeMenu }) => {
         .catch((error) => {
           setAuthError(error.message);
         });
-    } catch (error) {}
+    } catch (error) { }
   };
-
-  console.log(authError);
 
   return (
     <div className="sign-in-form">

@@ -1,5 +1,5 @@
-import { createSelector } from "reselect";
-import _, { create } from "lodash";
+import { createSelector } from 'reselect';
+import _, { create } from 'lodash';
 
 const meteodataSelector = (state) => state.data.fetchedData || [];
 
@@ -45,13 +45,13 @@ export const selectMinHumidity = createSelector([selectHumidity], (data) =>
 );
 
 export const selectFullDate = createSelector([meteodataSelector], (date) =>
-  date.map((dt) => dt.timeStamp + " " + dt.dayStamp)
+  date.map((dt) => dt.timeStamp + ' ' + dt.dayStamp)
 );
 
 export const selectConvertedRainSensorData = createSelector(
   [selectDataFromRainSensor],
 
-  (data) => data.map((dt) => (dt > 1000 ? "0" : "1"))
+  (data) => data.map((dt) => (dt > 1000 ? '0' : '1'))
 );
 
 // export const selectEverySecondDate = createSelector([selectFullDate], (date) =>
@@ -78,7 +78,7 @@ export const convertNotCurrentDataToNull = createSelector(
   [selectAllData],
   (data) =>
     data.map((dt) =>
-      parseInt(dt.dayStamp.split("-")[1]) === new Date().getMonth() + 1
+      parseInt(dt.dayStamp.split('-')[1]) === new Date().getMonth() + 1
         ? dt
         : null
     )
@@ -127,7 +127,7 @@ export const selectHowManyDaysGoneWhenLastElementWasAdded = createSelector(
 
 export const onlyTodayDataHelper = createSelector([selectAllData], (data) =>
   data.filter((dt) =>
-    dt.dayStamp.split("-")[2] === new Date(Date.now()).getDate().toString()
+    dt.dayStamp.split('-')[2] === new Date(Date.now()).getDate().toString()
       ? dt
       : null
   )
@@ -144,7 +144,7 @@ export const selectOnlyTodayHumidity = createSelector(
 );
 
 export const selectTodayDate = createSelector([onlyTodayDataHelper], (data) =>
-  data.map((dt) => dt.dayStamp + " " + dt.timeStamp)
+  data.map((dt) => dt.dayStamp + ' ' + dt.timeStamp)
 );
 
 export const selectAverageTodayTemperature = createSelector(
